@@ -95,7 +95,9 @@ class Chat extends StatefulWidget {
     this.userAgent,
     this.useTopSafeAreaInset,
     this.videoMessageBuilder,
+    this.beginSlivers,
   });
+  final List<Widget> beginSlivers;
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})? audioMessageBuilder;
@@ -423,23 +425,24 @@ class ChatState extends State<Chat> {
                                     BoxConstraints constraints,
                                   ) =>
                                       ChatList(
-                                    bottomWidget: widget.listBottomWidget,
-                                    bubbleRtlAlignment: widget.bubbleRtlAlignment!,
-                                    isLastPage: widget.isLastPage,
-                                    itemBuilder: (Object item, int? index) => _messageBuilder(
-                                      item,
-                                      constraints,
-                                      index,
-                                    ),
-                                    items: _chatMessages,
-                                    keyboardDismissBehavior: widget.keyboardDismissBehavior,
-                                    onEndReached: widget.onEndReached,
-                                    onEndReachedThreshold: widget.onEndReachedThreshold,
-                                    scrollController: _scrollController,
-                                    scrollPhysics: widget.scrollPhysics,
-                                    typingIndicatorOptions: widget.typingIndicatorOptions,
-                                    useTopSafeAreaInset: widget.useTopSafeAreaInset ?? isMobile,
-                                  ),
+                                          bottomWidget: widget.listBottomWidget,
+                                          bubbleRtlAlignment: widget.bubbleRtlAlignment!,
+                                          isLastPage: widget.isLastPage,
+                                          itemBuilder: (Object item, int? index) => _messageBuilder(
+                                                item,
+                                                constraints,
+                                                index,
+                                              ),
+                                          items: _chatMessages,
+                                          keyboardDismissBehavior: widget.keyboardDismissBehavior,
+                                          onEndReached: widget.onEndReached,
+                                          onEndReachedThreshold: widget.onEndReachedThreshold,
+                                          scrollController: _scrollController,
+                                          scrollPhysics: widget.scrollPhysics,
+                                          typingIndicatorOptions: widget.typingIndicatorOptions,
+                                          useTopSafeAreaInset:
+                                              widget.useTopSafeAreaInset ?? isMobile,
+                                          beginSlivers: widget.beginSlivers),
                                 ),
                               ),
                       ),
