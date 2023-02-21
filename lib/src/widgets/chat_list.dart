@@ -28,7 +28,7 @@ class ChatList extends StatefulWidget {
     required this.useTopSafeAreaInset,
   });
 
-  final List<Widget> beginSlivers;
+  final List<Widget>? beginSlivers;
 
   /// A custom widget at the bottom of the list.
   final Widget? bottomWidget;
@@ -160,7 +160,7 @@ class _ChatListState extends State<ChatList> with SingleTickerProviderStateMixin
           physics: widget.scrollPhysics,
           reverse: true,
           slivers: [
-            ...beginSlivers,
+            ...widget.beginSlivers,
             if (widget.bottomWidget != null) SliverToBoxAdapter(child: widget.bottomWidget),
             SliverPadding(
               padding: const EdgeInsets.only(bottom: 4),
