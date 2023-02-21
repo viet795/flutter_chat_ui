@@ -95,9 +95,7 @@ class Chat extends StatefulWidget {
     this.userAgent,
     this.useTopSafeAreaInset,
     this.videoMessageBuilder,
-    this.beginSlivers,
   });
-  final List<Widget>? beginSlivers;
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})? audioMessageBuilder;
@@ -441,8 +439,7 @@ class ChatState extends State<Chat> {
                                           scrollPhysics: widget.scrollPhysics,
                                           typingIndicatorOptions: widget.typingIndicatorOptions,
                                           useTopSafeAreaInset:
-                                              widget.useTopSafeAreaInset ?? isMobile,
-                                          beginSlivers: widget.beginSlivers),
+                                              widget.useTopSafeAreaInset ?? isMobile),
                                 ),
                               ),
                       ),
