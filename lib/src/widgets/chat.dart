@@ -418,7 +418,8 @@ class ChatState extends State<Chat> {
                   color: widget.theme.backgroundColor,
                   child: Column(
                     children: [
-                     if(widget.customBottomWidget) widget.customBottomWidget,
+                     if(widget.customBottomWidget!=null) 
+                      widget.customBottomWidget,
                       Flexible(
                         child: widget.messages.isEmpty
                             ? SizedBox.expand(
