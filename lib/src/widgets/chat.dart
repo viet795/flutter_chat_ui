@@ -97,7 +97,7 @@ class Chat extends StatefulWidget {
     this.videoMessageBuilder,
     this.beginSlivers,
   });
-  final List<Widget> beginSlivers;
+  final List<Widget>? beginSlivers;
 
   /// See [Message.audioMessageBuilder].
   final Widget Function(types.AudioMessage, {required int messageWidth})? audioMessageBuilder;
